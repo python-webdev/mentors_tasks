@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.coverage
+.env
+.DS_Store
+vscode_lsp_terminal_prompt_tracker
