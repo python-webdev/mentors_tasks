@@ -43,6 +43,10 @@ def _unit_for(ingredient: str) -> str:
     return "units"
 
 
+def _format_amount(amount: float) -> str:
+    return f"{amount:.10g}"
+
+
 def generate_prep_list(
     par: Mapping[str, float], stock: Mapping[str, float]
 ) -> None:
@@ -53,7 +57,9 @@ def generate_prep_list(
         unit = _unit_for(ingredient)
         if available < required:
             missing_amount = required - available
-            print(f"{ingredient}: NEED {missing_amount} {unit}")
+            print(
+                f"{ingredient}: NEED {_format_amount(missing_amount)} {unit}"
+            )
             needs_attention += 1
         else:
             print(f"{ingredient}: OK")
